@@ -46,7 +46,7 @@ app.post('/login', async (req, res) => {
 app.post('/register', async (req, res) => {
   try {
     const { email, password } = req.body
-    const ret = register(email, password)
+    const ret = await register(email, password)
     res.status(201).json(ret)
   } catch(err) {
     res.status(401).json({ message: 'Register failed' })
